@@ -480,6 +480,43 @@ Blockly.Blocks['controls_for'] = {
   },
 };
 
+// Blockly.Blocks['contract_struct'] = {
+//   init: function() {
+//     this.jsonInit(
+//         {
+//           "type": "contract_struct",
+//           "message0": 'struct %1',
+//           "args0": [
+//             {
+//               "type": "field_input",
+//               "name": "NAME",
+//               "check": "String",
+//               "text": "MyStruct",
+//             }
+//           ],
+//           "message1": "states %1",
+//           "args1": [
+//             {
+//               "type": "input_statement",
+//               "name": "STATES",
+//               "check": ["contract_state"],
+//               "align": "RIGHT"
+//             }
+//           ],
+//           "colour": 140,
+//           "tooltip": "Declares a new struct.",
+//           "variableScope"          
+//         }
+//       );
+//     this.getVariableScope = function() {
+//       var scope = this.getParent();
+//       while (!!scope && scope.type != 'contract') {
+//         scope = scope.getParent();
+//       }
+//       return scope;
+//     };
+//   }
+// }
 
 
 Blockly.defineBlocksWithJsonArray([
@@ -504,6 +541,9 @@ Blockly.defineBlocksWithJsonArray([
       }
     ],
     "colour": 140,
-    "tooltip": "Declares a new struct."
+    "tooltip": "Declares a new struct.",
+    "nextStatement": "contract_state",
+    "previousStatement": "contract_state"
   }
 ]);
+
