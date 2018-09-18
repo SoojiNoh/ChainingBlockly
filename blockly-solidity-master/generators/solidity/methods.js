@@ -27,7 +27,6 @@ Blockly.Solidity['contract_ctor'] = function(block) {
 
   return code;
 };
-
 Blockly.Solidity['contract_method_parameter'] = function(block) {
   var name = block.getFieldValue('NAME');
   var nextBlock = block.getNextBlock();
@@ -77,10 +76,10 @@ Blockly.Solidity['contract_method_call'] = function(block) {
 Blockly.Solidity['contract_struct'] = function(block) {
   var states = Blockly.Solidity.statementToCode(block, 'STATES');
   var code = 'pragma solidity ^0.4.2;\n\n'
-    + 'contract ' + block.getFieldValue('NAME') + ' {\n'
+    + 'struct ' + block.getFieldValue('NAME') + ' {\n'
     + states
-    + "  function () { throw; }\n"
+    // + "  function () { throw; }\n"
     + '}\n';
-
+    console.log(code);
   return code;
 };

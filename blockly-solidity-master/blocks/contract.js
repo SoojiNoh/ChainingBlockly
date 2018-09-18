@@ -151,9 +151,24 @@ Blockly.defineBlocksWithJsonArray([
   }
 ]);
 
+Blockly.Blocks['type_list'] = {
+  // List type.
+  valueType: 'Array',
+  init: function() {
+    this.jsonInit({
+      "message0": "Array",
+      "output": "Type",
+      "colour": 230,
+      "tooltip": "Arrays (lists) are allowed.",
+      "helpUrl": "https://www.youtube.com/watch?v=s2_xaEvcVI0#t=602"
+    });
+  }
+};
+
 Blockly.Blocks['contract_state'] = {
   init: function() {
-    var nameField = new Blockly.FieldTextInput('s');
+    var nameField = new Blockly.FieldTextInput('myVar');
+    var valueField = new Blockly.FieldTextInput('');
     this.appendDummyInput()
         .appendField('let')
         .appendField(new Blockly.FieldDropdown([
@@ -165,7 +180,9 @@ Blockly.Blocks['contract_state'] = {
           ]),
           'TYPE'
         )
-        .appendField(nameField, 'NAME');
+        .appendField(nameField, 'NAME')
+        .appendField('being set to')
+        .appendField(valueField, 'VALUE');
     this.setPreviousStatement(true, 'contract_state');
     this.setNextStatement(true, 'contract_state');
     this.setColour(195);
@@ -480,43 +497,6 @@ Blockly.Blocks['controls_for'] = {
   },
 };
 
-// Blockly.Blocks['contract_struct'] = {
-//   init: function() {
-//     this.jsonInit(
-//         {
-//           "type": "contract_struct",
-//           "message0": 'struct %1',
-//           "args0": [
-//             {
-//               "type": "field_input",
-//               "name": "NAME",
-//               "check": "String",
-//               "text": "MyStruct",
-//             }
-//           ],
-//           "message1": "states %1",
-//           "args1": [
-//             {
-//               "type": "input_statement",
-//               "name": "STATES",
-//               "check": ["contract_state"],
-//               "align": "RIGHT"
-//             }
-//           ],
-//           "colour": 140,
-//           "tooltip": "Declares a new struct.",
-//           "variableScope"          
-//         }
-//       );
-//     this.getVariableScope = function() {
-//       var scope = this.getParent();
-//       while (!!scope && scope.type != 'contract') {
-//         scope = scope.getParent();
-//       }
-//       return scope;
-//     };
-//   }
-// }
 
 
 Blockly.defineBlocksWithJsonArray([

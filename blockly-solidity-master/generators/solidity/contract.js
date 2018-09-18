@@ -23,7 +23,8 @@ Blockly.Solidity['contract'] = function(block) {
 
 Blockly.Solidity['contract_state'] = function(block) {
   var name = block.getFieldValue('NAME');
-  var value = Blockly.Solidity.valueToCode(block, 'VALUE', Blockly.Solidity.ORDER_ASSIGNMENT);
+  var value = block.getFieldValue('VALUE');
+  // var value = Blockly.Solidity.valueToCode(block, 'VALUE', Blockly.Solidity.ORDER_ASSIGNMENT);
   var type = block.getFieldValue('TYPE');
   var types = {
     'TYPE_BOOL': 'bool',
@@ -31,6 +32,7 @@ Blockly.Solidity['contract_state'] = function(block) {
     'TYPE_UINT': 'uint',
     'TYPE_ADDRESS': 'address',
     'TYPE_STRING': 'string'
+
   };
   var defaultValue = {
     'TYPE_BOOL': 'false',
@@ -40,8 +42,16 @@ Blockly.Solidity['contract_state'] = function(block) {
     'TYPE_STRING': 'LoveChaining'
   };
 
+  console.log("#######"+value);
+
   if (value === '') {
     value = defaultValue[type];
+  } else {
+    value = value;
+  }
+
+  if (type == 'TYPE_STRING') {
+    value = '"' + value + '"'
   }
 
   return types[type] + ' ' + name + ' = ' + value + ';\n';

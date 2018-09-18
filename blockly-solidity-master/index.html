@@ -10,12 +10,17 @@
   <script src="../blockly/blocks/logic.js"></script>
   <script src="../blockly/msg/js/en.js"></script>
 
+  <script src="../blockly/blocks/variables_oop.js"></script>
+  <script src="../blockly/blocks/procedures.js"></script>
+  <script src="../blockly/blocks/oop.js"></script>
+
   <script src="./blocks/contract.js"></script>
   <script src="./generators/solidity.js"></script>
   <script src="./generators/solidity/contract.js"></script>
   <script src="./generators/solidity/methods.js"></script>
   <script src="./generators/solidity/logic.js"></script>
   <script src="./generators/solidity/math.js"></script>
+  <script src="./generators/solidity/oop.js"></script>
   <style>
     body {
       background-color: #fff;
@@ -37,7 +42,8 @@
     <block type="contract_state"></block>
     <block type="contract_state_get"></block>
     <block type="contract_state_set"></block>
-    <!-- <block type="contract_method"></block> -->
+    <block type="contract_method"></block>
+    <!-- <block type="type_list"></block> -->
     <block type="contract_method_parameter"></block>
     <block type="contract_method_parameter_get"></block>
     <block type="contract_intrinsic_sha3"></block>
@@ -61,6 +67,7 @@
     <block type="math_number_property"></block>
 
     <block type="contract_struct"></block>
+    <!-- <block type="new_instance"></block> -->
 
   </xml>
 <!--   <table>
